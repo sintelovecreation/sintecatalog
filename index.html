@@ -20,7 +20,9 @@
        a. Create a folder named "images" next to this HTML file in your
           GitHub repo.
        b. Drop your photo in, matching the filename you typed in the
-          "image" field exactly (e.g. images/phone-strap-purple.jpg).
+          "image" field exactly (e.g. seaset.jpg — just the filename,
+          the code already knows it lives in the images/ folder, so
+          don't type "images/" yourself).
      Until a matching photo is uploaded, that spot shows a soft
      placeholder with the exact filename it's expecting.
   4. Swipeable photos + clickable colors:
@@ -320,21 +322,22 @@ const CATALOG = [
       {
         name: "Sea Creature Set",
         price: 50,
-        image: "seaset.jpg",
+        images: ["seaset.jpg", "sea.jpg"],
         addons: [
-          { label: "3-Color Paint", price: 25 },
-          { label: "Paintbrush", price: 15 },
-          { label: "5 pcs Sea Creature Plaster", price: 15 },
+          { label: "Add-ons: 3-Color Paint", price: 25 },
+          { label: "Add-ons: Paintbrush", price: 15 },
+          { label: "Add-ons: 5 pcs Sea Creature Plaster", price: 15 },
         ]
       },
       {
         name: "Flowers Set",
         price: 50,
-        image: "flowerset.jpg",
+        images: ["flowerset.jpg", "flower.jpg"],
+        
         addons: [
-          { label: "3-Color Paint", price: 25 },
-          { label: "Paintbrush", price: 15 },
-          { label: "1 pc Flower Plaster", price: 10 },
+          { label: "Add-ons: 3-Color Paint", price: 25 },
+          { label: "Add-ons: Paintbrush", price: 15 },
+          { label: "Add-ons: 1 pc Flower Plaster", price: 10 },
         ]
       }
     ]
@@ -352,18 +355,22 @@ const CATALOG = [
           {
             label: "Set A",
             colors: [
-              { name: "Purple", hex: "#8B5CF6", image: "phone-strap-purple.jpg" },
-              { name: "Moana", hex: "#2AB7CA", image: "phone-strap-moana.jpg" },
-              { name: "Stitch", hex: "#3B6FD6", image: "phone-strap-stitch.jpg" },
+              { name: "Purple", hex: "#8B5CF6", image: "purple.jpg" },
+              { name: "Moana", hex: "#FFCC5C", image: "moana.jpg" },
+              { name: "Stitch", hex: "#3B6FD6", image: "stitch.jpg" },
             ]
           },
           {
             label: "Set B",
             colors: [
-              { name: "Blue", hex: "#4A90D9", image: "phone-strap-blue.jpg" },
-              { name: "Pink", hex: "#EC6B94", image: "phone-strap-pink.jpg" },
-              { name: "White", hex: "#FFFFFF", image: "phone-strap-white.jpg" },
-              { name: "Black", hex: "#222222", image: "phone-strap-black.jpg" },
+              // TODO: these 4 filenames don't exist yet in your images
+              // folder — swap them for real filenames once you have
+              // photos for these colors, and the placeholders below
+              // will automatically switch to real pictures.
+              
+              { name: "Pink", hex: "#EC6B94", image: "pink.jpg" },
+              { name: "Thinkerbell", hex: "#FFFFFF", image: "thinker.jpg" },
+              { name: "Black", hex: "#222222", image: "panda.jpg" },
             ]
           }
         ]
@@ -378,7 +385,7 @@ const CATALOG = [
       {
         name: "Keychains",
         priceRange: "10–25",
-        image: "keychains.jpg",
+        images: ["keychians.jpg", "3T.1.jpg", "3T.2.jpg"],
         sub: "Price depends on design"
       }
     ]
@@ -391,8 +398,12 @@ const CATALOG = [
       {
         name: "Fuzzy Wire Bouquet",
         startingPrice: 40,
-        image: "fuzzy-bouquet.jpg",
-        sub: "Starting price, varies by size"
+        // Using a couple of your design photos as swipeable examples.
+        // Add more filenames to this list any time you want to show
+        // off more designs (box1.jpg, mix1.jpg, sun1.jpg, etc. are
+        // all sitting ready in your images folder if you want them).
+        images: ["box1.jpg", "box2.jpeg", "box3.jpeg", "box4.jpg", "box5.jpeg", "box6.jpg", "box7.jpg"],
+        sub: "Starting price, varies by size — swipe to see design examples"
       }
     ]
   },
