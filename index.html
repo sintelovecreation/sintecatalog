@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SinteLove Creation — Reseller Price List</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<!--
+==========================================================================
+  HOW TO EDIT THIS CATALOG (for the shop owner only)
+==========================================================================
+  1. Everything you'll ever need to change lives inside the CATALOG list
+     in the <script> tag below. Look for "EDIT ME BELOW". Right above it
+     you'll find ready-made TEMPLATES you can copy, paste, and fill in.
+  2. Nobody viewing the page can edit anything. This is a plain static
+     page — there are no input fields or edit buttons shown to visitors.
+  3. Adding photos:
+       a. Create a folder named "images" next to this HTML file in your
+          GitHub repo.
+       b. Drop your photo in, matching the filename you typed in the
+          "image" field exactly (e.g. images/phone-strap-purple.jpg).
+     Until a matching photo is uploaded, that spot shows a soft
+     placeholder with the exact filename it's expecting.
+  4. Swipeable photos + clickable colors:
+       - Give an item several photos (e.g. one per color) and visitors
+         can swipe left/right through them, or tap arrows.
+       - If an item has colorGroups, tap any color and the gallery jumps
+         straight to that color's photo.
+       See TEMPLATE 5 below for the exact shape to copy.
+==========================================================================
+-->
+
+<style>
+  :root{
+    --paper:#F3EEF6;
+    --paper-deep:#E5D9EE;
+    --ink:#1A1420;
+    --ink-soft:#6B5C78;
+    --coral:#B0338C;
+    --teal:#7A3FD1;
+    --mustard:#D6408A;
+    --lilac:#8E4FE0;
+    --pink:#E8559F;
+    --card:#FFFFFF;
+    --shadow: 0 6px 18px rgba(26,20,32,0.14);
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(26,20,32,0.06) 1px, transparent 0);
+    background-size: 18px 18px;
+    font-family:'Nunito', sans-serif;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,.display{font-family:'Baloo 2', sans-serif;}
+
+  .wrap{max-width:480px; margin:0 auto; padding-bottom:48px;}
+
+  /* ---------- Header ---------- */
+  header{
+    background:linear-gradient(160deg, #0F0A14 0%, #241432 70%, #3B1A46 100%);
+    color:var(--paper);
+    padding:28px 20px 22px;
+    border-radius:0 0 28px 28px;
+    position:relative;
+    overflow:hidden;
+  }
+  header::after{
+    content:"";
+    position:absolute;
+    right:-30px; top:-30px;
+    width:140px; height:140px;
+    background:var(--pink);
+    opacity:0.35;
+    border-radius:50%;
+  }
+  header::before{
+    content:"";
+    position:absolute;
+    left:-40px; bottom:-50px;
+    width:120px; height:120px;
+    background:var(--lilac);
+    opacity:0.3;
+    border-radius:50%;
+  }
+  header .eyebrow{
+    font-size:12px; letter-spacing:2px; text-transform:uppercase;
+    color:var(--pink); font-weight:800; margin:0 0 6px; position:relative;
+  }
+  header h1{ font-size:28px; margin:0 0 6px; font-weight:800; line-height:1.1; position:relative; }
+  header p{ margin:0; font-size:14px; color:#D9C9E3; font-weight:600; position:relative; }
+
+  /* ---------- Sticky category nav ---------- */
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:var(--paper);
+    padding:14px 20px 10px;
+    display:flex; gap:8px;
+    overflow-x:auto;
+    -ms-overflow-style:none; scrollbar-width:none;
+    border-bottom:1px solid var(--paper-deep);
+  }
+  nav::-webkit-scrollbar{display:none;}
+  nav a{
+    flex:0 0 auto;
+    font-family:'Baloo 2', sans-serif; font-weight:600; font-size:13px;
+    color:var(--ink); background:var(--card); border:2px solid var(--paper-deep);
+    padding:8px 14px; border-radius:999px; text-decoration:none; white-space:nowrap;
+  }
+
+  /* ---------- Sections ---------- */
+  section{padding:26px 20px 4px;}
+  .cat-title{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
+  .cat-chip{
+    font-size:11px; font-weight:800; letter-spacing:1px; text-transform:uppercase;
+    color:#fff; padding:5px 10px; border-radius:8px; transform:rotate(-2deg);
+  }
+  .cat-title h2{ margin:0; font-size:20px; font-weight:700; }
+  .cat-note{ margin:-8px 0 14px; font-size:13px; color:var(--ink-soft); font-weight:600; }
+
+  /* ---------- Card ---------- */
+  .card{
+    background:var(--card); border-radius:18px; box-shadow:var(--shadow);
+    margin-bottom:16px; overflow:hidden; position:relative;
+  }
+
+  /* ---------- Photo / swipe gallery ---------- */
+  .photo{ width:100%; aspect-ratio:4/3; background:var(--paper-deep); position:relative; overflow:hidden; }
+  .photo-track{
+    display:flex; width:100%; height:100%;
+    transition: transform 0.3s ease;
+    touch-action: pan-y;
+  }
+  .photo-slide{ flex:0 0 100%; width:100%; height:100%; position:relative; }
+  .photo-slide img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .placeholder{
+    position:absolute; inset:0;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
+    color:var(--ink-soft); text-align:center; padding:10px;
+  }
+  .placeholder .icon{font-size:26px;}
+  .placeholder small{ font-size:10px; font-weight:700; opacity:0.8; word-break:break-all; }
+
+  .photo-nav{
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:30px; height:30px; border-radius:50%; border:none;
+    background:rgba(26,20,32,0.45); color:#fff; font-size:16px;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; z-index:6;
+  }
+  .photo-nav.prev{left:8px;}
+  .photo-nav.next{right:8px;}
+
+  .photo-dots{
+    position:absolute; bottom:8px; left:50%; transform:translateX(-50%);
+    display:flex; gap:5px; z-index:6;
+  }
+  .photo-dots .dot{ width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.6); transition:width 0.2s; }
+  .photo-dots .dot.active{ background:#fff; width:16px; border-radius:4px; }
+
+  .price-tag{
+    position:absolute; top:10px; right:10px; color:#fff;
+    font-family:'Baloo 2', sans-serif; font-weight:800; font-size:15px;
+    padding:8px 12px; border-radius:12px 12px 12px 2px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.25); transform:rotate(4deg); z-index:6;
+  }
+  .price-tag small{ display:block; font-size:9px; font-weight:700; opacity:0.85; letter-spacing:0.5px; }
+
+  .body{padding:14px 16px 16px;}
+  .item-name{font-size:16px; font-weight:700; margin:0 0 4px;}
+  .item-sub{font-size:12.5px; color:var(--ink-soft); font-weight:600; margin:0 0 10px;}
+
+  /* addons */
+  .addons{list-style:none; margin:0; padding:0; border-top:1px dashed var(--paper-deep); padding-top:10px;}
+  .addons li{ display:flex; justify-content:space-between; align-items:baseline; font-size:13.5px; font-weight:700; padding:4px 0; }
+  .addons li span:first-child{color:var(--ink);}
+  .addons li span:last-child{color:var(--ink-soft);}
+  .addons li::before{content:"+ "; color:var(--ink-soft); font-weight:800;}
+
+  /* colors */
+  .color-groups{margin-top:10px;}
+  .color-group-label{font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.5px; color:var(--ink-soft); margin:10px 0 6px;}
+  .swatches{display:flex; flex-wrap:wrap; gap:10px;}
+  .swatch{
+    display:flex; flex-direction:column; align-items:center; gap:4px; width:52px;
+    background:none; border:none; padding:2px; font:inherit; cursor:pointer;
+  }
+  .swatch .dot{ width:28px; height:28px; border-radius:50%; border:2px solid var(--paper-deep); box-shadow:inset 0 0 0 2px #fff; }
+  .swatch span{ font-size:10px; font-weight:700; text-align:center; color:var(--ink-soft); }
+  .swatch.active .dot{ box-shadow: 0 0 0 3px var(--pink), inset 0 0 0 2px #fff; }
+  .swatch.active span{ color:var(--ink); }
+
+  footer{ padding:30px 20px 10px; text-align:center; }
+  footer p{ font-size:12px; color:var(--ink-soft); font-weight:600; line-height:1.6; margin:4px 0; }
+  footer .brand{ font-family:'Baloo 2', sans-serif; font-weight:700; color:var(--ink); font-size:14px; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Reseller Price List</p>
+    <h1>SinteLove Creation</h1>
+    <p>Tap through, pick your set, and place your order 🎨</p>
+  </header>
+
+  <nav id="catNav"></nav>
+
+  <main id="catalog"></main>
+
+  <footer>
+    <p class="brand">SinteLove Creation — thank you for reselling with us! 💜</p>
+    <p>Prices are for resellers and may change without prior notice.</p>
+    <p>For orders, message us on Facebook / Messenger.</p>
+    <a href="https://www.facebook.com/share/1F3iM4hd5A/">Click to View Page</a>
+  </footer>
+</div>
+
+<script>
+/* ==========================================================================
+   COPY-PASTE TEMPLATES
+   Copy any block below into the "items" list of a category (or copy a
+   whole category block) inside CATALOG, then fill in your own details.
+   Delete the fields you don't need — every field except "name" is optional.
+   ========================================================================== */
+
+/* TEMPLATE 1 — a brand new category
+{
+  id: "unique-id-no-spaces",
+  category: "Category Name Shown To Viewers",
+  accent: "var(--pink)",   // pick from: var(--coral) var(--teal) var(--mustard) var(--lilac) var(--pink)
+  note: "Optional short line under the category title",
+  items: [
+    // paste item templates here
+  ]
+},
+*/
+
+/* TEMPLATE 2 — simplest item: one photo, one price
+{
+  name: "Item Name",
+  price: 25,
+  image: "item-photo.jpg"
+},
+*/
+
+/* TEMPLATE 3 — item with add-ons (extra paid options)
+{
+  name: "Item Name",
+  price: 50,
+  image: "item-photo.jpg",
+  addons: [
+    { label: "Add-on Name", price: 25 },
+    { label: "Another Add-on", price: 15 }
+  ]
+},
+*/
+
+/* TEMPLATE 4 — item with a price range or a "starting at" price
+{
+  name: "Item Name",
+  priceRange: "10–25",     // shows "₱10–25"
+  image: "item-photo.jpg",
+  sub: "Price depends on design"
+},
+{
+  name: "Another Item",
+  startingPrice: 40,       // shows "₱40  starts at"
+  image: "item-photo.jpg",
+  sub: "Starting price, varies by size"
+},
+*/
+
+/* TEMPLATE 5 — item with color choices + swipeable photos
+   Give each color its own "image" — tapping a color jumps the gallery
+   straight to that photo, and visitors can also just swipe left/right
+   through all of them.
+{
+  name: "Item Name",
+  price: 20,
+  colorGroups: [
+    {
+      label: "Group Label (optional, e.g. Set A)",
+      colors: [
+        { name: "Purple", hex: "#8B5CF6", image: "item-purple.jpg" },
+        { name: "Pink",   hex: "#EC6B94", image: "item-pink.jpg" }
+      ]
+    }
+  ]
+},
+*/
+
+/* TEMPLATE 6 — multiple photos, no colors (e.g. different angles)
+{
+  name: "Item Name",
+  price: 40,
+  images: ["item-angle-1.jpg", "item-angle-2.jpg", "item-angle-3.jpg"]
+},
+*/
+
+
+/* ==========================================================================
+   EDIT ME BELOW — your actual catalog.
+   ========================================================================== */
+
+const CATALOG = [
+  {
+    id: "plaster-kits",
+    category: "Plaster Painting Kits",
+    accent: "var(--coral)",
+    note: "Choose Sea Creature or Flowers set",
+    items: [
+      {
+        name: "Sea Creature Set",
+        price: 50,
+        image: "sea-creature-set.jpg",
+        addons: [
+          { label: "3-Color Paint", price: 25 },
+          { label: "Paintbrush", price: 15 },
+          { label: "5 pcs Sea Creature Plaster", price: 15 },
+        ]
+      },
+      {
+        name: "Flowers Set",
+        price: 50,
+        image: "flowers-set.jpg",
+        addons: [
+          { label: "3-Color Paint", price: 25 },
+          { label: "Paintbrush", price: 15 },
+          { label: "1 pc Flower Plaster", price: 10 },
+        ]
+      }
+    ]
+  },
+  {
+    id: "phone-straps",
+    category: "Phone Straps",
+    accent: "var(--teal)",
+    note: "Tap a color to see it, or swipe through the photos",
+    items: [
+      {
+        name: "Phone Strap",
+        price: 20,
+        colorGroups: [
+          {
+            label: "Set A",
+            colors: [
+              { name: "Purple", hex: "#8B5CF6", image: "phone-strap-purple.jpg" },
+              { name: "Moana", hex: "#2AB7CA", image: "phone-strap-moana.jpg" },
+              { name: "Stitch", hex: "#3B6FD6", image: "phone-strap-stitch.jpg" },
+            ]
+          },
+          {
+            label: "Set B",
+            colors: [
+              { name: "Blue", hex: "#4A90D9", image: "phone-strap-blue.jpg" },
+              { name: "Pink", hex: "#EC6B94", image: "phone-strap-pink.jpg" },
+              { name: "White", hex: "#FFFFFF", image: "phone-strap-white.jpg" },
+              { name: "Black", hex: "#222222", image: "phone-strap-black.jpg" },
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "keychains",
+    category: "Keychains",
+    accent: "var(--mustard)",
+    items: [
+      {
+        name: "Keychains",
+        priceRange: "10–25",
+        image: "keychains.jpg",
+        sub: "Price depends on design"
+      }
+    ]
+  },
+  {
+    id: "bouquets",
+    category: "Fuzzy Wire Flower Bouquet",
+    accent: "var(--lilac)",
+    items: [
+      {
+        name: "Fuzzy Wire Bouquet",
+        startingPrice: 40,
+        image: "fuzzy-bouquet.jpg",
+        sub: "Starting price, varies by size"
+      }
+    ]
+  },
+  {
+    id: "sheets",
+    category: "Customized Sheets",
+    accent: "var(--pink)",
+    items: [
+      {
+        name: "Coloring Sheets",
+        price: 3,
+        unit: "per sheet",
+        image: "coloring-sheet.jpg"
+      },
+      {
+        name: "Educational Sheets",
+        price: 3,
+        unit: "per sheet",
+        image: "educational-sheet.jpg",
+        sub: "Alphabets, Numbers, Shapes, Animals, Fruits, Vegetables"
+      }
+    ]
+  }
+];
+
+/* ==========================================================================
+   Nothing below this line needs editing.
+   ========================================================================== */
+
+function peso(n){ return "₱" + n; }
+
+function priceTagHTML(item, accent){
+  if (item.price !== undefined){
+    return `<div class="price-tag" style="background:${accent}">${peso(item.price)}${item.unit ? `<small>${item.unit}</small>` : ""}</div>`;
+  }
+  if (item.priceRange !== undefined){
+    return `<div class="price-tag" style="background:${accent}">₱${item.priceRange}</div>`;
+  }
+  if (item.startingPrice !== undefined){
+    return `<div class="price-tag" style="background:${accent}">${peso(item.startingPrice)}<small>starts at</small></div>`;
+  }
+  return "";
+}
+
+function getSlides(item){
+  if (item.images && item.images.length) return item.images.slice();
+  if (item.colorGroups){
+    const imgs = [];
+    item.colorGroups.forEach(g => g.colors.forEach(c => {
+      if (c.image && !imgs.includes(c.image)) imgs.push(c.image);
+    }));
+    if (imgs.length) return imgs;
+  }
+  return [item.image || "add-photo.jpg"];
+}
+
+let photoCounter = 0;
+
+function cardHTML(item, accent){
+  const photoId = `photo-${photoCounter++}`;
+  const slides = getSlides(item);
+
+  const slidesHTML = slides.map(img => `
+    <div class="photo-slide" data-image="${img}">
+      <div class="placeholder">
+        <div class="icon">📷</div>
+        <small>images/${img}</small>
+      </div>
+      <img src="images/${img}" alt="${item.name}"
+           onerror="this.style.display='none'"
+           onload="this.previousElementSibling.style.display='none'">
+    </div>
+  `).join("");
+
+  const navHTML = slides.length > 1 ? `
+    <button class="photo-nav prev" aria-label="Previous photo">‹</button>
+    <button class="photo-nav next" aria-label="Next photo">›</button>
+    <div class="photo-dots">
+      ${slides.map((_, i) => `<span class="dot${i === 0 ? " active" : ""}"></span>`).join("")}
+    </div>` : "";
+
+  const addons = item.addons ? `
+    <ul class="addons">
+      ${item.addons.map(a => `<li><span>${a.label}</span><span>${peso(a.price)}</span></li>`).join("")}
+    </ul>` : "";
+
+  const colorGroups = item.colorGroups ? `
+    <div class="color-groups">
+      ${item.colorGroups.map(g => `
+        ${g.label ? `<div class="color-group-label">${g.label}</div>` : ""}
+        <div class="swatches">
+          ${g.colors.map((c, i) => `
+            <button type="button" class="swatch${g === item.colorGroups[0] && i === 0 ? " active" : ""}"
+                    data-photo="${photoId}" data-image="${c.image || ""}">
+              <span class="dot" style="background:${c.hex}"></span>
+              <span>${c.name}</span>
+            </button>
+          `).join("")}
+        </div>
+      `).join("")}
+    </div>` : "";
+
+  return `
+  <div class="card">
+    <div class="photo" id="${photoId}">
+      <div class="photo-track">${slidesHTML}</div>
+      ${navHTML}
+      ${priceTagHTML(item, accent)}
+    </div>
+    <div class="body">
+      <p class="item-name">${item.name}</p>
+      ${item.sub ? `<p class="item-sub">${item.sub}</p>` : ""}
+      ${addons}
+      ${colorGroups}
+    </div>
+  </div>`;
+}
+
+function render(){
+  const catalogEl = document.getElementById("catalog");
+  const navEl = document.getElementById("catNav");
+
+  CATALOG.forEach(section => {
+    navEl.innerHTML += `<a href="#${section.id}">${section.category}</a>`;
+    const itemsHTML = section.items.map(item => cardHTML(item, section.accent)).join("");
+    catalogEl.innerHTML += `
+      <section id="${section.id}">
+        <div class="cat-title">
+          <span class="cat-chip" style="background:${section.accent}">${section.category}</span>
+        </div>
+        ${section.note ? `<p class="cat-note">${section.note}</p>` : ""}
+        ${itemsHTML}
+      </section>`;
+  });
+}
+
+function initCarousels(){
+  document.querySelectorAll(".photo").forEach(photoEl => {
+    const track = photoEl.querySelector(".photo-track");
+    const slides = track.children;
+    const total = slides.length;
+    let index = 0;
+
+    function update(){
+      track.style.transform = `translateX(-${index * 100}%)`;
+      photoEl.querySelectorAll(".photo-dots .dot").forEach((d, i) => d.classList.toggle("active", i === index));
+    }
+
+    photoEl.goTo = i => { index = Math.max(0, Math.min(total - 1, i)); update(); };
+
+    let startX = 0;
+    track.addEventListener("touchstart", e => { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener("touchend", e => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40){
+        index = Math.max(0, Math.min(total - 1, index + (dx < 0 ? 1 : -1)));
+        update();
+      }
+    });
+
+    const prev = photoEl.querySelector(".photo-nav.prev");
+    const next = photoEl.querySelector(".photo-nav.next");
+    if (prev) prev.addEventListener("click", () => { index = Math.max(0, index - 1); update(); });
+    if (next) next.addEventListener("click", () => { index = Math.min(total - 1, index + 1); update(); });
+  });
+}
+
+document.addEventListener("click", e => {
+  const sw = e.target.closest(".swatch");
+  if (!sw || !sw.dataset.image) return;
+  const photoEl = document.getElementById(sw.dataset.photo);
+  if (!photoEl) return;
+  const slides = photoEl.querySelectorAll(".photo-slide");
+  let idx = 0;
+  slides.forEach((s, i) => { if (s.dataset.image === sw.dataset.image) idx = i; });
+  photoEl.goTo(idx);
+  sw.closest(".color-groups").querySelectorAll(".swatch").forEach(s => s.classList.remove("active"));
+  sw.classList.add("active");
+});
+
+render();
+initCarousels();
+</script>
+</body>
+</html>
